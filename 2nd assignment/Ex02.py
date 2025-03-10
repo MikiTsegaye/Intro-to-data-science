@@ -12,7 +12,7 @@
 # In this exercise you are asked to find your computer's IP address. In order to get it, make an API call to this service: `https://api.ipify.org?format=json` and get your current IP address. Print just the IP address itself.
 # 
 
-# In[1]:
+# In[ ]:
 
 
 #your code here
@@ -36,13 +36,13 @@ print(ip)
 # 
 # 
 
-# In[2]:
+# In[ ]:
 
 
 # your code here
 
 
-# In[14]:
+# In[ ]:
 
 
 baseURL="https://public.opendatasoft.com/api/records/1.0/search/?dataset=euro-exchange-rates&sort=date&facet=currency&rows=30&facet=date"
@@ -63,7 +63,7 @@ x.json()
 import pandas as pd
 
 
-# In[16]:
+# In[ ]:
 
 
 rates=[]
@@ -73,12 +73,16 @@ currencies=[]
 resDict=x.json()
 for rec in resDict['records']:
     print(rec['fields'])
+    rates.append(rec['fields']['rate'])
+    dates.append(rec['fields']['date'])
+    currencies.append(rec['fields']['currency'])
 
 
 # In[ ]:
 
 
-
+df=pd.DataFrame({'date':dates,'rate':rates,'currency':currencies})
+df
 
 
 # In[ ]:
