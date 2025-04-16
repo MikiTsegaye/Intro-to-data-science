@@ -821,7 +821,7 @@ return evaluation_val
 def evaluate_accuracy(y_test, y_predicted):
     evaluation_val=accuracy_score(y_test,y_predicted)
     return evaluation_val
-
+#for some reason i got 0.5/0.6 in this implentation
 
 # In[121]:
 
